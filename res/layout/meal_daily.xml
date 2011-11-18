@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  
+  
+   <Button android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="아침에 쳐 먹은거 입력하기"
+		android:textSize="20sp" android:id="@+id/breakfastContentsButton">
+	</Button>
+    
+   <TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:textSize="20sp"
+    android:id="@+id/morningMealsRetrieval"
+    />
+    
+   <Button android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="점심에 쳐 먹은거 입력하기"
+		android:textSize="20sp" android:id="@+id/lunchContentsButton">
+	</Button>
+    
+   <TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:textSize="20sp"
+    android:id="@+id/lunchMealsRetrieval"
+    />
+    
+    <Button android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="저녁에 쳐 먹은거 입력하기"
+		android:textSize="20sp" android:id="@+id/dinnerContentsButton">
+	</Button>
+    
+   <TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:textSize="20sp"
+    android:id="@+id/dinnerMealsRetrieval"
+    />
+    
+    <Button android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="밥 외에 더 쳐 먹은거 입력하기"
+		android:textSize="20sp" android:id="@+id/extraMealsContentsButton">
+	</Button>
+    
+   <TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:textSize="20sp"
+    android:id="@+id/extraMealsRetrieval"
+    />
+    
+</LinearLayout>

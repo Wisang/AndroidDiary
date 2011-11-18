@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.lge.scc" android:versionCode="1" android:versionName="1.0">
+	<uses-sdk android:minSdkVersion="7" />
+
+	<application android:icon="@drawable/icon" android:label="@string/app_name" android:name=".FitnessApplication">
+		<activity android:name=".FitnessDiaryActivity" android:label="@string/app_name">
+		</activity>
+
+		<activity android:name=".Intro" android:label="Welcome to Fitness Diary">
+			
+		</activity>
+
+		<activity android:name=".DailyMealSummary" android:label="@string/TitleDayMeal">
+		</activity>
+
+		<activity android:name=".DailyExerciseSummary" android:label="@string/TitleDayExercise">
+		</activity>
+
+		<activity android:name=".MealContents" android:label="@string/TitleMealContents">
+		</activity>
+
+		<activity android:name=".ExerciseContents" android:label="@string/TitleExerciseContents">
+		</activity>
+
+		<activity android:name=".CalendarAdapter" android:label="Calendaradapter">
+		</activity>
+
+		<activity android:name=".GVCalendarActivity" android:label="Calendar">
+		<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name=".DayInfo" android:label="DailyInfo">
+		</activity>
+		
+		<activity android:name=".DailySummary" android:label="DailySummary">
+		</activity>
+
+	</application>
+</manifest>

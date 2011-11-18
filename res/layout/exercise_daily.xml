@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  
+  <Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="스쿼트"
+		android:textSize="20sp" android:id="@+id/squatButton">
+	</Button>
+    
+   <TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:textSize="20sp"
+    android:id="@+id/squatRetrieval"
+    />
+    
+    <Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="데드리프트"
+		android:textSize="20sp" android:id="@+id/deadLiftButton">
+	</Button>
+    
+   <TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:textSize="20sp"
+    android:id="@+id/deadLiftRetrieval"
+    />
+    
+    <Button android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:text="벤치프레스"
+		android:textSize="20sp" android:id="@+id/benchPressButton">
+	</Button>
+    
+   <TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:textSize="20sp"
+    android:id="@+id/benchPressRetrieval"
+    />
+</LinearLayout>

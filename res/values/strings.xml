@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">FitnessDiaryMain</string>
+    <string name="app_name">FitnessDiary</string>
+    <string name="TitleDayMeal">오늘 쳐 먹은거</string>
+    <string name="TitleDayExercise">오늘 운동한거</string>
+    <string name="TitleMealContents">쳐 먹은 음식들 입력</string>
+    <string name="TitleExerciseContents">운동한 내용 입력</string>
+</resources>

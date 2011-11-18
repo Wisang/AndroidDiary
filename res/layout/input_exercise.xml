@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent" android:weightSum="1">
+    <TextView android:text="부하(kg)" android:textSize="20sp"
+    android:layout_weight="0.08" android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"></TextView>
+    <EditText android:id="@+id/TextWeight" android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"></EditText>
+    
+    <TextView android:text="세트 (회)" android:textSize="20sp"
+    android:layout_weight="0.08" android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"></TextView>
+    <EditText
+  	android:layout_height="wrap_content" 
+    android:id="@+id/TextSet" android:layout_width="fill_parent">
+    </EditText>
+    
+    <TextView android:text="총 반복 횟수(회)" android:textSize="20sp"
+    android:layout_weight="0.08" android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"></TextView>
+    <EditText
+  	android:layout_height="wrap_content" 
+    android:id="@+id/TextRepetition" android:layout_width="fill_parent">
+    </EditText> 
+    
+    <Button android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="운동한거 저장"
+		android:textSize="20sp" android:id="@+id/exerciseContentsSaveButton">
+	</Button>
+    
+</LinearLayout>
