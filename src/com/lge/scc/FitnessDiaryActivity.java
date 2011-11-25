@@ -1,8 +1,12 @@
 package com.lge.scc;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Map;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -62,13 +66,38 @@ public class FitnessDiaryActivity extends Activity implements OnClickListener {
 				e.printStackTrace();
 			}
 			
-			((FitnessApplication)getApplication()).dailyRecords.put(date, drCopied);
+			Map<Calendar, DailyRecord> mapData = ((FitnessApplication)getApplication()).getRecords();
+			
+			mapData.put(date, drCopied);
+			
+			saveInDB(drCopied);
 			
 			initializeData(dailyRecord);
 			
 			Intent in = new Intent(this, GVCalendarActivity.class);
 			startActivity(in) ;
 		}
+	}
+
+	private void saveInDB(DailyRecord drCopied) {
+		Contents foodData = new Contents(this);
+		ContentValues values = new ContentValues();
+		
+		Date dateDB = date.getTime(); 
+		SimpleDateFormat simpleDate = new SimpleDateFormat("yy-MM-dd");
+		
+		values.clear();
+		values.put(Contents.C_DATE, simpleDate.format(dateDB));
+		values.put(Contents.C_BREAKFAST, drCopied.breakfast);
+		values.put(Contents.C_LUNCH, drCopied.lunch);
+		values.put(Contents.C_DINNER, drCopied.dinner);
+		values.put(Contents.C_EXTRAMEAL, drCopied.extraMeal);
+		values.put(Contents.C_SQUAT, drCopied.squat);
+		values.put(Contents.C_DEADLIFT, drCopied.deadLift);
+		values.put(Contents.C_BENCHPRESS, drCopied.benchPress);
+		
+		foodData.insert(values);
+		foodData.close();
 	}
 
 	private void initializeData(DailyRecord dr) {

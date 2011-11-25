@@ -207,10 +207,12 @@ public class GVCalendarActivity extends Activity implements
 		switch (v.getId()) {
 		case R.id.gv_calendar_activity_b_last:
 			mThisMonthCalendar = getLastMonth(mThisMonthCalendar);
+			((FitnessApplication)getApplication()).setSelectedMonth(mThisMonthCalendar.getTime().getMonth());
 			getCalendar(mThisMonthCalendar);
 			break;
 		case R.id.gv_calendar_activity_b_next:
 			mThisMonthCalendar = getNextMonth(mThisMonthCalendar);
+			((FitnessApplication)getApplication()).setSelectedMonth(mThisMonthCalendar.getTime().getMonth());
 			getCalendar(mThisMonthCalendar);
 			break;
 		}

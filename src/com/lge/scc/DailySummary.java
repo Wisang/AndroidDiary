@@ -45,9 +45,14 @@ public class DailySummary extends Activity implements OnClickListener{
         
         if(null != dailyRecord)
         	fillContents();
+        
+        Calendar now = Calendar.getInstance();
+    	FitnessApplication applicationObject = (FitnessApplication)getApplication();
+		int selectedMonth = applicationObject.getSelectedMonth();
            
         if(applicationData.getRecords().containsKey(date))
-        	tv.setText(contents);
+        	if(now.getTime().getMonth() == selectedMonth)
+				tv.setText(contents);
         else
         	tv.setText("no Data");
 	}
