@@ -72,38 +72,6 @@ public class DailyExerciseSummary extends Activity implements OnClickListener {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode != Activity.RESULT_OK)
 			return;
-
-		/*
-		ExerciseData exerciseData = new ExerciseData(this);
-		ContentValues values = new ContentValues();
-		
-		Calendar calendar = new GregorianCalendar();
-		calendar.add(Calendar.DAY_OF_MONTH, 1);
-		Date date = calendar.getTime(); 
-		SimpleDateFormat simpleDate = new SimpleDateFormat("yy-MM-dd");
-		
-		values.clear();
-		values.put(ExerciseData.C_DATE, simpleDate.format(date));
-		
-		values.put(ExerciseData.C_EXERCISE, requestCode);
-		values.put(ExerciseData.C_WEIGHT, data.getStringExtra("weight"));
-		values.put(ExerciseData.C_SET, data.getStringExtra("set"));
-		values.put(ExerciseData.C_REPEAT, data.getStringExtra("repeat"));
-
-
-		Log.i("exercise", values.getAsString(ExerciseData.C_DATE));
-		Log.i("exercise", values.getAsString(ExerciseData.C_EXERCISE));
-		Log.i("exercise", values.getAsString(ExerciseData.C_WEIGHT));
-		Log.i("exercise", values.getAsString(ExerciseData.C_SET));
-		Log.i("exercise", values.getAsString(ExerciseData.C_REPEAT));
-		Log.i("exercise", values.getAsString(ExerciseData.C_DATE));
-		
-		try {
-			exerciseData.insert(values);
-		} finally {
-			exerciseData.close();	
-		}
-		*/
 		
 		FitnessApplication applicationData = (FitnessApplication)getApplication();
 		
@@ -134,49 +102,6 @@ public class DailyExerciseSummary extends Activity implements OnClickListener {
 			}
 		}
 	}
-
-	/*
-	@Override
-	protected void onResume() {
-		ExerciseData exerciseData = new ExerciseData(this);
-
-		super.onResume();
-		
-		try {				
-			Cursor cursor = exerciseData.getExercises();
-			
-			try {
-				while(cursor.moveToNext()) {
-					int exercise = cursor.getInt(cursor.getColumnIndex(ExerciseData.C_EXERCISE));
-					StringBuffer exerciseSummay = new StringBuffer();
-					
-					exerciseSummay.append(cursor.getString(cursor.getColumnIndex(ExerciseData.C_WEIGHT)));
-					exerciseSummay.append("kg ");
-					exerciseSummay.append(cursor.getString(cursor.getColumnIndex(ExerciseData.C_SET)));
-					exerciseSummay.append("¼¼Æ® ");
-					exerciseSummay.append(cursor.getString(cursor.getColumnIndex(ExerciseData.C_REPEAT)));
-					exerciseSummay.append("È¸ ");
-					
-					if (exercise == SQUAT)
-						squat.add(exerciseSummay.toString());
-					else if (exercise == DEADLIFT)
-						deadlift.add(exerciseSummay.toString());
-					else if (exercise == BENCHPRESS)
-						benchpress.add(exerciseSummay.toString());
-				}
-			} finally {
-				cursor.close();
-			}
-			
-			updateMeals(squatRetrieval, squat);
-			updateMeals(deadliftRetrieval, deadlift);
-			updateMeals(benchpressRetrieval, benchpress);
-
-		} finally {		
-			exerciseData.close();
-		}
-	}
-	*/
 		
 	private void updateExercise(TextView textView, Set<String> exercise) {
 		textView.setText(exercise.toString());

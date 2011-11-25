@@ -87,28 +87,6 @@ public class DailyMealSummary extends Activity implements OnClickListener{
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode != Activity.RESULT_OK)
 			return;
-
-		/*
-		FoodData foodData = new FoodData(this);
-		ContentValues values = new ContentValues();
-		
-		Calendar calendar = new GregorianCalendar();
-		calendar.add(Calendar.DAY_OF_MONTH, 1);
-		Date date = calendar.getTime(); 
-		SimpleDateFormat simpleDate = new SimpleDateFormat("yy-MM-dd");
-		
-		values.clear();
-		values.put(FoodData.C_DATE, simpleDate.format(date));
-		values.put(FoodData.C_WHEN, requestCode);
-		values.put(FoodData.C_NAME, data.getStringExtra("name"));
-
-		Log.i("meal", values.getAsString(FoodData.C_DATE));
-		Log.i("meal", values.getAsString(FoodData.C_WHEN));
-		Log.i("meal", values.getAsString(FoodData.C_NAME));
-		
-		foodData.insert(values);
-		foodData.close();
-		*/
 		
 		FitnessApplication applicationData = (FitnessApplication)getApplication();
 				
@@ -148,45 +126,6 @@ public class DailyMealSummary extends Activity implements OnClickListener{
 			}
 		}
 	}
-
-	/*
-	@Override
-	protected void onResume() {
-		
-		FoodData foodData = new FoodData(this);
-
-		super.onResume();
-		
-		try {				
-			Cursor cursor = foodData.getMeals();
-			
-			try {
-				while(cursor.moveToNext()) {
-					int meals = cursor.getInt(cursor.getColumnIndex(FoodData.C_WHEN));
-					
-					if (meals == BREAKFAST)
-						breakfast.add(cursor.getString(cursor.getColumnIndex(FoodData.C_NAME)));
-					else if (meals == LUNCH)
-						lunch.add(cursor.getString(cursor.getColumnIndex(FoodData.C_NAME)));
-					else if (meals == DINNER)
-						dinner.add(cursor.getString(cursor.getColumnIndex(FoodData.C_NAME)));
-					else if (meals == EXTRAMEALS)
-						extraMeal.add(cursor.getString(cursor.getColumnIndex(FoodData.C_NAME)));
-				}
-			} finally {
-				cursor.close();
-			}
-			
-			updateMeals(breakfastRetrieval, breakfast);
-			updateMeals(lunchRetrieval, lunch);
-			updateMeals(dinnerRetrieval, dinner);
-			updateMeals(extraMealsRetrieval, extraMeal);
-		} finally {		
-			foodData.close();
-		}
-		
-	}
-	*/
 	
 	private void updateMeals(TextView textView,	Set<String> meals) {
 		textView.setText(meals.toString());

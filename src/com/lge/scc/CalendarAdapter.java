@@ -71,6 +71,14 @@ public class CalendarAdapter extends BaseAdapter
 	public Object getItem(int position)
 	{
 		// TODO Auto-generated method stub
+		// update position with the month value
+		
+//		Calendar dateOfTheView = Calendar.getInstance();
+//		
+//		FitnessApplication applicationObject = (FitnessApplication)mContext.getApplicationContext();
+//		
+//		dateOfTheView.set(Calendar.MONTH, applicationObject.getSelectedMonth());
+		
 		return mDayList.get(position);
 	}
 
@@ -101,11 +109,15 @@ public class CalendarAdapter extends BaseAdapter
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
 		DayInfo day = mDayList.get(position);
-
+		
 		DayViewHolde dayViewHolder;
 		
-		Map<Calendar, DailyRecord> mapData = ((FitnessApplication)mContext.getApplicationContext()).getRecords();
+		FitnessApplication applicationObject = (FitnessApplication)mContext.getApplicationContext();
+		
+		Map<Calendar, DailyRecord> mapData = applicationObject.getRecords();
 
+		int selectedMonth = applicationObject.getSelectedMonth();
+		
 		if(convertView == null)
 		{
 			convertView = mLiInflater.inflate(mResource, null);
@@ -155,9 +167,11 @@ public class CalendarAdapter extends BaseAdapter
 				if(mapData.containsKey(day.getDate()))
 				{
 					Log.d("enter cell", "contains the key");
-					dayViewHolder.tvDay.setBackgroundColor(Color.GREEN);
+					Calendar now = Calendar.getInstance();
+					
+					if(now.getTime().getMonth() == selectedMonth)
+						dayViewHolder.tvDay.setBackgroundColor(Color.GREEN);
 				}
-				
 			}
 			else
 			{
