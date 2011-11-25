@@ -15,22 +15,25 @@
     	android:id="@+id/gv_calendar_activity_tv_title" 
     	android:layout_height="wrap_content"
     	android:layout_width="fill_parent"
-    	android:layout_marginTop="20dp" 
+		android:layout_margin="20dp"
+		android:layout_weight="0"
     	android:gravity="center" 
     	android:textColor="#000" 
     	android:textStyle="bold"/>
 	<GridView
 		android:id="@+id/gv_calendar_activity_gv_calendar"
-		android:layout_width="320dp"
-		android:layout_height="320dp"
-		android:layout_marginTop="30dp"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
 		android:numColumns="7"
 		android:stretchMode="columnWidth"
 		android:listSelector="@drawable/gridview_selector"/>
-		
+
 	<LinearLayout
 		android:layout_width="fill_parent"
-		android:layout_height="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="10dp"
+		android:layout_weight="0"
 		android:orientation="horizontal"
 		android:gravity="center">
 		<Button

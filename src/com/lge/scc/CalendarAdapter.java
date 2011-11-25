@@ -28,6 +28,7 @@ public class CalendarAdapter extends BaseAdapter
 	private int mResource;
 	private LayoutInflater mLiInflater;
 	private LinearLayout cell;
+	private int gridviewHeight;
 	
 	LinearLayout layout;
 
@@ -115,21 +116,25 @@ public class CalendarAdapter extends BaseAdapter
 		
 		Map<Calendar, DailyRecord> mapData = applicationObject.getRecords();
 
-		//int selectedMonth = applicationObject.getSelectedMonth();
-		
-		if(convertView == null)
+		if(convertView == null || convertView.getHeight() == 0)
 		{
+			int width;
+			int height;
+
+			gridviewHeight = parent.getHeight();
 			convertView = mLiInflater.inflate(mResource, null);
 
 			if(position % 7 == 6)
-			{
-				convertView.setLayoutParams(new GridView.LayoutParams(getCellWidthDP()+getRestCellWidthDP(), getCellHeightDP()));
-			}
+				width = getCellWidthDP()+getRestCellWidthDP();
 			else
-			{
-				convertView.setLayoutParams(new GridView.LayoutParams(getCellWidthDP(), getCellHeightDP()));	
-			}
+				width = getCellWidthDP();
 			
+			if(position / 7 == 6)
+				height = getCellHeightDP()+getRestCellHeightDP();
+			else
+				height = getCellHeightDP();
+
+			convertView.setLayoutParams(new GridView.LayoutParams(width, height));	
 			
 			dayViewHolder = new DayViewHolde();
 
@@ -172,7 +177,6 @@ public class CalendarAdapter extends BaseAdapter
 			{
 				dayViewHolder.tvDay.setTextColor(Color.GRAY);
 			}
-
 		}
 		
 		return convertView;
@@ -187,26 +191,31 @@ public class CalendarAdapter extends BaseAdapter
 
 	private int getCellWidthDP()
 	{
-//		int width = mContext.getResources().getDisplayMetrics().widthPixels;
-		int cellWidth = 480/7;
+		int width = mContext.getResources().getDisplayMetrics().widthPixels;
+		int cellWidth = width/7;
 		
 		return cellWidth;
 	}
 	
 	private int getRestCellWidthDP()
 	{
-//		int width = mContext.getResources().getDisplayMetrics().widthPixels;
-		int cellWidth = 480%7;
+		int width = mContext.getResources().getDisplayMetrics().widthPixels;
+		int cellWidth = width%7;
 		
 		return cellWidth;
 	}
 	
 	private int getCellHeightDP()
 	{
-//		int height = mContext.getResources().getDisplayMetrics().widthPixels;
-		int cellHeight = 480/6;
-		
+		int cellHeight = gridviewHeight / 6;
+
 		return cellHeight;
 	}
 	
+	private int getRestCellHeightDP()
+	{
+		int cellHeight = gridviewHeight % 6;
+
+		return cellHeight;
+	}
 }
