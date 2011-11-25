@@ -15,7 +15,7 @@ public class FitnessApplication extends Application{
 	
 	Calendar date;
 	DailyRecord dailyRecord;
-	
+		
 	int selectedMonth;
 	
 	Map<Calendar, DailyRecord> dailyRecords;

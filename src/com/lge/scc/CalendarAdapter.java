@@ -6,7 +6,6 @@ import java.util.Map;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -116,7 +115,7 @@ public class CalendarAdapter extends BaseAdapter
 		
 		Map<Calendar, DailyRecord> mapData = applicationObject.getRecords();
 
-		int selectedMonth = applicationObject.getSelectedMonth();
+		//int selectedMonth = applicationObject.getSelectedMonth();
 		
 		if(convertView == null)
 		{
@@ -166,11 +165,7 @@ public class CalendarAdapter extends BaseAdapter
 				
 				if(mapData.containsKey(day.getDate()))
 				{
-					Log.d("enter cell", "contains the key");
-					Calendar now = Calendar.getInstance();
-					
-					if(now.getTime().getMonth() == selectedMonth)
-						dayViewHolder.tvDay.setBackgroundColor(Color.GREEN);
+					dayViewHolder.tvDay.setBackgroundColor(Color.GREEN);
 				}
 			}
 			else

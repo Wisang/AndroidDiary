@@ -82,6 +82,13 @@ public class GVCalendarActivity extends Activity implements
 		// 이번달 의 캘린더 인스턴스를 생성한다.
 		mThisMonthCalendar = Calendar.getInstance();
 		mThisMonthCalendar.set(Calendar.DAY_OF_MONTH, 1);
+		
+		FitnessApplication applicationData = (FitnessApplication)getApplication();
+		
+		int selectedMonth = applicationData.getSelectedMonth();
+		mThisMonthCalendar.set(Calendar.MONTH, selectedMonth);
+		
+		//mThisMonthCalendar.set(Calendar.)
 		getCalendar(mThisMonthCalendar);
 	}
 
@@ -124,9 +131,9 @@ public class GVCalendarActivity extends Activity implements
 		DayInfo day;
 
 		Log.e("DayOfMOnth", dayOfMonth + "");
-
+				
 		for (int i = 0; i < dayOfMonth - 1; i++) {
-			Calendar today = Calendar.getInstance();
+			Calendar today = (Calendar)calendar.clone();// Calendar.getInstance();
 			today.add(Calendar.MONTH, -1);
 
 			int date = lastMonthStartDay + i;
@@ -138,8 +145,7 @@ public class GVCalendarActivity extends Activity implements
 			mDayList.add(day);
 		}
 		for (int i = 1; i <= thisMonthLastDay; i++) {
-			Calendar today = Calendar.getInstance();
-
+			Calendar today = (Calendar)calendar.clone();
 			day = new DayInfo();
 			day.setDay(Integer.toString(i));
 			day.setInMonth(true);
@@ -148,7 +154,7 @@ public class GVCalendarActivity extends Activity implements
 			mDayList.add(day);
 		}
 		for (int i = 1; i < 42 - (thisMonthLastDay + dayOfMonth - 1) + 1; i++) {
-			Calendar today = Calendar.getInstance();
+			Calendar today = (Calendar)calendar.clone();
 			today.add(Calendar.MONTH, 1);
 
 			day = new DayInfo();
@@ -195,7 +201,12 @@ public class GVCalendarActivity extends Activity implements
 	@Override
 	public void onItemClick(AdapterView<?> parent, View v, int position,
 			long arg3) {
+		
+		FitnessApplication applicationData = (FitnessApplication)getApplication();
 		DayInfo day = (DayInfo) parent.getItemAtPosition(position);
+		
+		int selectedMonth = applicationData.getSelectedMonth();
+		day.getDate().set(Calendar.MONTH, selectedMonth);
 		
 		Intent in = new Intent(this, DailySummary.class);
 		in.putExtra("date", day.getDate());
